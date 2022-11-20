@@ -1,0 +1,59 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin centeritem {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// MEDIA QUERY MANAER
+
+/*
+0 - 600px   phone
+600 - 900px Portrait tablet 
+900 - 1200px Landscape tablet
+1200 - 1800PX Is where our normal style apply
+1800 - ... For bigger screen sizes
+*/
+
+/*
+Break point argument choices:
+ - phone
+ - tab-port
+ - tab-land
+ - big-desk
+*/
+
+// ORDER: base > typography > general layout + grid > page layout > component
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == big-desk {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint == land-tab {
+    @media only screen and (max-width: 75em) {
+      // < 1200px
+      @content;
+    }
+  }
+  @if $breakpoint == port-tab {
+    @media only screen and (max-width: 56.25em) {
+      // < 900px
+      @content;
+    }
+  }
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      // < 600px
+      @content;
+    }
+  }
+}

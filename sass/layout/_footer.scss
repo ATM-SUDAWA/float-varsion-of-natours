@@ -1,0 +1,74 @@
+.footer {
+  font-size: 1.3rem;
+  color: $color-light-gray-1;
+  padding: 10rem 0;
+  background-color: $color-gray-dark-3;
+
+  @include respond(port-tab) {
+    padding: 8rem 0;
+  }
+
+  &__navigation {
+    border-top: 1px solid $color-gray-dark;
+    padding-top: 2rem;
+    display: inline-block;
+
+    @include respond(port-tab) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &__logo-box {
+    text-align: center;
+    margin-bottom: 8rem;
+
+    @include respond(port-tab) {
+      margin-bottom: 6rem;
+    }
+  }
+  &__logo {
+    width: 15rem;
+    height: auto;
+  }
+
+  &__list {
+    list-style: none;
+  }
+  &__item {
+    display: inline-block;
+    &:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+  }
+  &__link {
+    &:link,
+    &:visited {
+      //   background-color: $color-gray-dark-3;
+      display: inline-block;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.2s;
+      color: $color-light-gray-1;
+    }
+    &:hover,
+    &:active {
+      color: $color-primary;
+      transform: rotate(5deg) scale(1.3);
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.4);
+    }
+  }
+  &__copyright {
+    border-top: 1px solid $color-gray-dark;
+    padding-top: 2rem;
+    display: inline-block;
+    width: 80%;
+    float: left;
+
+    @include respond(port-tab) {
+      width: 100%;
+      float: none;
+      text-align: center;
+    }
+  }
+}
